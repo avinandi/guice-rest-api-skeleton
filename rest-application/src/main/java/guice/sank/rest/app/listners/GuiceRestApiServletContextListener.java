@@ -28,7 +28,7 @@ public class GuiceRestApiServletContextListener extends GuiceServletContextListe
 
 	private Module[] getModules() {
 		try {
-			String applicationContext = System.getProperty("");
+			String applicationContext = System.getProperty("guice.sank.rest.app.di.ProductionGuiceRestApiContext");
 			List<Module> modules = Class.forName(applicationContext).asSubclass(GuiceRestApiContext.class).newInstance().getModules();
 			return modules.toArray(new Module[modules.size()]);
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
