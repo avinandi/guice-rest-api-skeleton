@@ -1,7 +1,7 @@
 package guice.sank.rest.app.apis;
 
 import com.google.inject.Inject;
-import guice.sank.rest.app.domainObjects.ProductOffer;
+import guice.sank.rest.app.domainObjects.sfdc.ProductOffer;
 import guice.sank.rest.app.repositories.DataLoaderRepository;
 
 import javax.ws.rs.POST;
