@@ -1,8 +1,11 @@
 package guice.sank.rest.app.filters;
 
+import com.google.inject.Singleton;
+
 import javax.servlet.*;
 import java.io.IOException;
 
+@Singleton
 public class CharacterEncodingFilter implements Filter {
 
 	@Override

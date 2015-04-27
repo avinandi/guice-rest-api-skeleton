@@ -9,6 +9,7 @@ public class JerseyRestApplication extends PackagesResourceConfig {
 
 	private static String[] getServletPackages() {
 		return new String[] {
+				"com.wordnik.swagger.jaxrs.listing",
 				"guice.sank.rest.app.apis"
 		};
 	}
