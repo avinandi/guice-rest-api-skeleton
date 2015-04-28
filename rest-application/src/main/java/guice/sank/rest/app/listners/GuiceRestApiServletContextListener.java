@@ -7,6 +7,8 @@ import com.google.inject.Stage;
 import com.google.inject.servlet.GuiceServletContextListener;
 import guice.sank.rest.app.di.GuiceRestApiContext;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
 import java.util.List;
 
 public class GuiceRestApiServletContextListener extends GuiceServletContextListener {
@@ -28,7 +30,7 @@ public class GuiceRestApiServletContextListener extends GuiceServletContextListe
 
 	private Module[] getModules() {
 		try {
-			String applicationContext = System.getProperty("guice.sank.rest.app.di.ProductionGuiceRestApiContext");
+			String applicationContext = System.getProperty("application.environment.context");
 			List<Module> modules = Class.forName(applicationContext).asSubclass(GuiceRestApiContext.class).newInstance().getModules();
 			return modules.toArray(new Module[modules.size()]);
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {

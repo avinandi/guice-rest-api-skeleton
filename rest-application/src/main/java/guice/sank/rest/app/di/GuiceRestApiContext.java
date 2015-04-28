@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class GuiceRestApiContext {
+public abstract class GuiceRestApiContext {
 	protected final List<Module> injectableModules;
 
 	GuiceRestApiContext(final Module... modules) {
