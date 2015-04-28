@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 @Produces({MediaType.APPLICATION_JSON})
 @Path("/cms")
-public class RestApi {
+public class CmsRestApi {
 
 	@Inject
 	private DataLoaderRepository dataLoaderRepository;

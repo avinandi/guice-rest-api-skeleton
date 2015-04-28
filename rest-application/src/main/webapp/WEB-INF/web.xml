@@ -6,6 +6,9 @@
          version="3.0">
     <absolute-ordering/>
     <listener>
+        <listener-class>se.jiderhamn.classloader.leak.prevention.ClassLoaderLeakPreventor</listener-class>
+    </listener>
+    <listener>
         <listener-class>guice.sank.rest.app.listners.GuiceRestApiServletContextListener</listener-class>
     </listener>
 

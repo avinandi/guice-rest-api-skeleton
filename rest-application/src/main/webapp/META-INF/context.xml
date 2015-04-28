@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+http://tomcat.apache.org/tomcat-7.0-doc/config/context.html
+
+If we are iprocessing requests while context is undeployed, it will result in memory leaks.
+-->
+<Context unloadDelay="120000">
+</Context>

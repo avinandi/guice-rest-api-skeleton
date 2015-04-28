@@ -17,6 +17,11 @@
             <artifactId>rest-api</artifactId>
             <version>trunk-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>se.jiderhamn</groupId>
+            <artifactId>classloader-leak-prevention</artifactId>
+            <version>1.10.0</version>
+        </dependency>
     </dependencies>
 
 </project>
