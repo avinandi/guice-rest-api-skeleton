@@ -12,9 +12,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class GuiceRestApiContext {
-	protected final List<Module> injectableModules;
+	private final List<Module> injectableModules;
 
-	GuiceRestApiContext(final Module... modules) {
+	protected GuiceRestApiContext(final Module... modules) {
 		injectableModules = Lists.newArrayList();
 		injectableModules.addAll(Arrays.asList(modules));
 		injectableModules.addAll(createModules());
@@ -22,7 +22,7 @@ public abstract class GuiceRestApiContext {
 
 	private List<? extends Module> createModules() {
 		return new ArrayList<Module>() {{
-			add(new ConfigurationModule(getClass()));
+			add(new ConfigurationModule(getContextClass()));
 			add(new RestModule());
 			add(new RepositoryModule());
 			add(new CmsClientModule());
@@ -31,5 +31,9 @@ public abstract class GuiceRestApiContext {
 
 	public List<Module> getModules() {
 		return injectableModules;
+	}
+
+	private Class<? extends GuiceRestApiContext> getContextClass() {
+		return getClass();
 	}
 }

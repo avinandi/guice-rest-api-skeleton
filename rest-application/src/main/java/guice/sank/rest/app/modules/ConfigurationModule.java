@@ -16,7 +16,7 @@ public class ConfigurationModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
-		Names.bindProperties(binder(), resourceBundleToProperties(ResourceBundle.getBundle(clazz.getName())));
+		Names.bindProperties(binder(), resourceBundleToProperties(ResourceBundle.getBundle(clazz.getCanonicalName())));
 	}
 
 	public static Properties resourceBundleToProperties(ResourceBundle resourceBundle) {
