@@ -20,7 +20,7 @@ public class CmsClientModule extends AbstractModule {
 		bind(Client.class).annotatedWith(CmsApi.class).toProvider(CmsClientProvider.class);
 	}
 
-	private class CmsClientProvider implements Provider<Client> {
+	private static class CmsClientProvider implements Provider<Client> {
 		private final String crmUsername;
 		private final String cmsPassword;
 

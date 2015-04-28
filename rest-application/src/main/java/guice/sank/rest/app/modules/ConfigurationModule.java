@@ -4,6 +4,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 import guice.sank.rest.app.di.GuiceRestApiContext;
 
+import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -16,7 +17,8 @@ public class ConfigurationModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
-		Names.bindProperties(binder(), resourceBundleToProperties(ResourceBundle.getBundle(clazz.getCanonicalName())));
+		Names.bindProperties(binder(), resourceBundleToProperties(ResourceBundle.getBundle(clazz.getCanonicalName(),
+				Locale.getDefault())));
 	}
 
 	public static Properties resourceBundleToProperties(ResourceBundle resourceBundle) {
