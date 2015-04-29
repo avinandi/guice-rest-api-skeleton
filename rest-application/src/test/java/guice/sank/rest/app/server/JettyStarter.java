@@ -21,7 +21,6 @@ import static guice.sank.rest.app.server.JettyStarter.LocalServer.*;
 
 public class JettyStarter implements TestServer {
 	private final Server server;
-	private ServerConnector httpConnector;
 	private WebAppContext context;
 
 	public JettyStarter(Integer port, Module... modules) {
@@ -32,7 +31,7 @@ public class JettyStarter implements TestServer {
 	}
 
 	public JettyStarter(Integer port) {
-		this.server = createServer(port, httpConnector);
+		this.server = createServer(port);
 		context = deployApplicationTo(this.server, new HashMap<>());
 	}
 
@@ -75,10 +74,10 @@ public class JettyStarter implements TestServer {
 
 	public static class LocalServer {
 
-		public static Server createServer(Integer httpPort, ServerConnector httpConnector) {
+		public static Server createServer(Integer httpPort) {
 			final Server createdServer = new Server();
 			if (httpPort != null) {
-				httpConnector = new ServerConnector(createdServer);
+				ServerConnector httpConnector = new ServerConnector(createdServer);
 				httpConnector.setPort(httpPort);
 				createdServer.addConnector(httpConnector);
 			}
