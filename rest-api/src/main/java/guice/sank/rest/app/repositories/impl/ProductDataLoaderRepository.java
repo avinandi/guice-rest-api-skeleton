@@ -2,6 +2,7 @@ package guice.sank.rest.app.repositories.impl;
 
 import com.google.inject.Inject;
 import guice.sank.rest.app.clients.CmsClient;
+import guice.sank.rest.app.domainObjects.cms.CmsNode;
 import guice.sank.rest.app.domainObjects.sfdc.ProductOffer;
 import guice.sank.rest.app.repositories.DataLoaderRepository;
 
@@ -16,6 +17,11 @@ public class ProductDataLoaderRepository implements DataLoaderRepository {
 
 	@Override
 	public void postRequestToCms(ProductOffer productOffer) {
+		CmsNode cmsNode = constructCmsRequest(productOffer);
+		cmsClient.doPut("", cmsNode);
+	}
 
+	private CmsNode constructCmsRequest(ProductOffer productOffer) {
+		return null;
 	}
 }

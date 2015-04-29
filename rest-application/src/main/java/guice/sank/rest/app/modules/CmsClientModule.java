@@ -3,6 +3,7 @@ package guice.sank.rest.app.modules;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.google.inject.Scopes;
 import com.google.inject.name.Named;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;
@@ -12,6 +13,7 @@ import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.client.filter.ClientFilter;
 import guice.sank.rest.app.annotation.CmsApi;
+import guice.sank.rest.app.clients.AbstractClient;
 
 public class CmsClientModule extends AbstractModule {
 
