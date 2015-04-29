@@ -15,7 +15,7 @@ public class GuiceRestApiServletContextListener extends GuiceServletContextListe
 
 	final Injector injector;
 
-	GuiceRestApiServletContextListener() {
+	public GuiceRestApiServletContextListener() {
 		injector = createInjectors();
 	}
 
