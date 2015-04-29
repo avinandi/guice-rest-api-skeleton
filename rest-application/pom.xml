@@ -3,25 +3,53 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>guice-rest-api-skeletom</artifactId>
-        <groupId>fi.elisa.sose</groupId>
+        <artifactId>guice-rest-api-skeleton</artifactId>
+        <groupId>com.guice.sank</groupId>
         <version>trunk-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <name>Guice Rest API Application</name>
     <artifactId>rest-application</artifactId>
+    <packaging>war</packaging>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
     <dependencies>
         <dependency>
-            <groupId>fi.elisa.sose</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>rest-api</artifactId>
-            <version>trunk-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>se.jiderhamn</groupId>
-            <artifactId>classloader-leak-prevention</artifactId>
-            <version>1.10.0</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>7.2.2.v20101205</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <stopKey>STOP</stopKey>
+                    <stopPort>40002</stopPort>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>jetty.port</name>
+                            <value>9999</value>
+                        </systemProperty>
+                    </systemProperties>
+                    <webAppConfig>
+                        <contextPath>/billing-rest-api</contextPath>
+                    </webAppConfig>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
