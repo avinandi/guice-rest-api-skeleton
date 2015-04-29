@@ -14,4 +14,12 @@ public class StartJetty {
 			testServer.start();
 		}
 	}
+
+	public static class StartLocalWebContext {
+		public static void main(String[] args) throws Exception {
+			System.setProperty("application.environment.context", LocalGuiceRestApiContext.class.getCanonicalName());
+			TestServer testServer = new JettyStarter(9999);
+			testServer.start();
+		}
+	}
 }
