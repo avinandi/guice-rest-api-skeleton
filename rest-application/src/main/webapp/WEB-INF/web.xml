@@ -13,18 +13,18 @@
     </listener>
 
     <filter>
+        <filter-name>GuiceFilter</filter-name>
+        <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+    </filter>
+    <filter>
         <filter-name>DocumentationFilter</filter-name>
         <filter-class>guice.sank.rest.app.filters.DocumentationStaticContentFilter</filter-class>
     </filter>
+
     <filter-mapping>
         <filter-name>DocumentationFilter</filter-name>
         <url-pattern>/documentation/*</url-pattern>
     </filter-mapping>
-
-    <filter>
-        <filter-name>GuiceFilter</filter-name>
-        <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
-    </filter>
     <filter-mapping>
         <filter-name>GuiceFilter</filter-name>
         <url-pattern>/*</url-pattern>
