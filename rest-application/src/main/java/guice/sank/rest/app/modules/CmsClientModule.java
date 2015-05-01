@@ -23,12 +23,12 @@ public class CmsClientModule extends AbstractModule {
 	}
 
 	private static class CmsClientProvider implements Provider<Client> {
-		private final String crmUsername;
+		private final String cmsUsername;
 		private final String cmsPassword;
 
 		@Inject
 		public CmsClientProvider(@Named("cms.username") String userName, @Named("cms.password") String password) {
-			this.crmUsername = userName;
+			this.cmsUsername = userName;
 			this.cmsPassword = password;
 		}
 
@@ -45,7 +45,7 @@ public class CmsClientModule extends AbstractModule {
 		private class CmsJerseyClientFilter extends ClientFilter {
 			@Override
 			public ClientResponse handle(ClientRequest clientRequest) throws ClientHandlerException {
-				clientRequest.getHeaders().add("user", crmUsername);
+				clientRequest.getHeaders().add("user", cmsUsername);
 				clientRequest.getHeaders().add("password", cmsPassword);
 				return getNext().handle(clientRequest);
 			}
