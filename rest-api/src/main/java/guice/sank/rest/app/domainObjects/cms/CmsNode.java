@@ -16,8 +16,4 @@ public class CmsNode extends DomainObject {
 		this.properties = properties;
 		this.type = "mgnl:contentNode";
 	}
-
-	private CmsNode() {
-		this(null, null, null);
-	}
 }

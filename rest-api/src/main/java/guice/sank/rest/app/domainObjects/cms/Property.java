@@ -16,8 +16,4 @@ public class Property extends DomainObject {
 		this.multiple = multiple;
 		this.values = values;
 	}
-
-	private Property() {
-		this(null, null, null, null);
-	}
 }
